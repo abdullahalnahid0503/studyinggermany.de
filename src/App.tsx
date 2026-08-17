@@ -11,6 +11,7 @@ import { CustomCursor } from "./components/layout/CustomCursor";
 import HomePage from "./pages/HomePage";
 import Booking from "./pages/Booking";
 import Premium from "./pages/Premium";
+import { GermanLanguage } from "./pages/GermanLanguage";
 import ServicesPage from "./pages/ServicesPage";
 import UniversitiesPage from "./pages/UniversitiesPage";
 import BlogPage from "./pages/BlogPage";
@@ -24,6 +25,7 @@ function Routes() {
   const { page } = useRouter();
   if (page === "/booking") return <Booking />;
   if (page === "/premium") return <Premium />;
+  if (page === "/germanlanguage") return <GermanLanguage />;
   if (page === "/services") return <ServicesPage />;
   if (page === "/universities") return <UniversitiesPage />;
   if (page === "/blog") return <BlogPage />;

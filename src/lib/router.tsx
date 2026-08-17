@@ -9,6 +9,7 @@ import {
 
 export type Page =
   | "/"
+  | "/germanlanguage"
   | "/premium"
   | "/booking"
   | "/services"
@@ -33,6 +34,7 @@ function parsePage(path: string): Page {
   const clean = path.replace(/\?.*$/, "").replace(/\/$/, "") || "/";
   const map: Record<string, Page> = {
     "/premium": "/premium",
+    "/germanlanguage": "/germanlanguage",
     "/booking": "/booking",
     "/services": "/services",
     "/universities": "/universities",
