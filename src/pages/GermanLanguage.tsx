@@ -457,12 +457,8 @@ export function GermanLanguage() {
             <div>
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600 dark:text-indigo-300">
                 <GraduationCap className="h-3.5 w-3.5" />
-                Meet Your Instructors
-              </p>
-
-              <h2 className="mt-2 font-heading text-xl font-bold text-slate-900 dark:text-white">
                 Choose your instructor
-              </h2>
+              </p>
 
               <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
                 Select the instructor you would prefer to learn with. You can
