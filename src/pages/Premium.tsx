@@ -5,7 +5,7 @@ import { useRouter } from "../lib/router";
 import horbachImage from "../assets/images/horbach.jpeg";
 import herFinanzImage from "../assets/images/HerFinanz.png";
 import finanz4BeginnersImage from "../assets/images/Finanz4Beginners.png";
-import { Reveal } from "../components/ui/Reveal"; // ⚠️ verify this path in your project
+import { Reveal } from "../components/ui/Reveal";
 
 import {
   GraduationCap,
@@ -524,7 +524,10 @@ export default function Premium() {
       {/* ------------------------------------------------------------- */}
       {/* FAQ */}
       {/* ------------------------------------------------------------- */}
-      <section id="faq" className="relative overflow-hidden bg-slate-50 py-24 dark:bg-primary-950/50 sm:py-32">
+      <section
+        id="faq"
+        className="relative overflow-hidden bg-slate-50 py-24 dark:bg-primary-950/50 sm:py-32"
+      >
         <div className="container-page">
           <Reveal>
             <div className="max-w-2xl mx-auto text-center">
@@ -538,7 +541,8 @@ export default function Premium() {
                 </span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-500 sm:text-lg dark:text-primary-300">
-                Everything you need to know before booking your session with Billal.
+                Everything you need to know before booking your session with
+                Billal.
               </p>
             </div>
           </Reveal>
@@ -550,7 +554,9 @@ export default function Premium() {
                 <Reveal key={f.q} delay={i * 0.05}>
                   <div
                     className={`overflow-hidden rounded-2xl border bg-white transition-colors dark:bg-primary-900/40 ${
-                      isOpen ? "border-accent-500/40" : "border-slate-100 dark:border-white/5"
+                      isOpen
+                        ? "border-accent-500/40"
+                        : "border-slate-100 dark:border-white/5"
                     }`}
                   >
                     <button
@@ -573,7 +579,10 @@ export default function Premium() {
                     </button>
                     <div
                       className="overflow-hidden transition-all duration-300"
-                      style={{ maxHeight: isOpen ? "400px" : "0", opacity: isOpen ? 1 : 0 }}
+                      style={{
+                        maxHeight: isOpen ? "400px" : "0",
+                        opacity: isOpen ? 1 : 0,
+                      }}
                     >
                       <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                         {f.a}
