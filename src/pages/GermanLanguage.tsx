@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  ArrowLeft,
   BadgeCheck,
   Briefcase,
   Check,
@@ -103,15 +102,6 @@ export function GermanLanguage() {
   return (
     <main className="relative overflow-hidden py-12 sm:py-16">
       <div className="container-page">
-        {/* Back button */}
-        <button
-          onClick={() => navigate("/")}
-          className="mb-8 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </button>
-
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-300">
