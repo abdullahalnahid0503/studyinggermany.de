@@ -103,7 +103,7 @@ export function GermanLanguage() {
     <main className="relative overflow-hidden py-12 sm:py-16">
       <div className="container-page">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto mt-6 max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-300">
             <GraduationCap className="h-3.5 w-3.5" />
             German Language Program
