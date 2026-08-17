@@ -166,10 +166,19 @@ export function Services() {
                 {tabServices.map((service, i) => (
                   <a
                     key={service.title}
-                    href="/booking"
+                    href={
+                      service.title === "German Language Guidance"
+                        ? "/german-language"
+                        : "/booking"
+                    }
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate("/booking");
+
+                      if (service.title === "German Language Guidance") {
+                        navigate("/germanlanguage");
+                      } else {
+                        navigate("/booking");
+                      }
                     }}
                     className="group flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-soft transition-all duration-200 hover:border-primary-100 hover:shadow-card dark:border-white/5 dark:bg-primary-900/30 dark:hover:border-white/10"
                     style={{ animationDelay: `${i * 0.05}s` }}

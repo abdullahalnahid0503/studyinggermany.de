@@ -13,7 +13,7 @@ import {
   User,
   Users,
 } from "lucide-react";
-import najrulIslam from "../assets/images/najrulislam.jpeg";
+import najrulIslam from "../assets/images/najrulislam.png";
 import { useRouter } from "../lib/router";
 
 const academicBackground = [
@@ -103,17 +103,40 @@ export function GermanLanguage() {
     <main className="relative overflow-hidden py-12 sm:py-16">
       <div className="container-page">
         {/* Header */}
-        <div className="mx-auto mt-6 max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-300">
+        <div className="mx-auto mt-10 max-w-3xl text-center">
+          <span
+            className="
+              inline-flex items-center gap-2 rounded-full
+              border border-indigo-400/30
+              bg-indigo-500/10
+              px-3.5 py-1
+              text-xs font-semibold uppercase tracking-[0.18em]
+              text-indigo-600
+              dark:text-indigo-300
+            "
+          >
             <GraduationCap className="h-3.5 w-3.5" />
             German Language Program
           </span>
 
-          <h1 className="mt-5 font-heading text-3xl font-bold text-white sm:text-4xl">
+          <h1
+            className="
+              mt-7 font-heading text-3xl font-bold
+              text-slate-900
+              sm:text-4xl
+              dark:text-white
+            "
+          >
             Learn German from a Certified Educator
           </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+          <p
+            className="
+              mx-auto mt-4 max-w-2xl text-sm leading-relaxed
+              text-slate-600
+              dark:text-slate-300
+            "
+          >
             Join structured German language classes from A1 to C2 with
             individual and small-group learning options.
           </p>
@@ -122,17 +145,47 @@ export function GermanLanguage() {
         {/* Course summary */}
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           {/* Instructor */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7">
+          <div
+            className="
+              rounded-2xl
+              border border-slate-200
+              bg-white
+              p-6 shadow-sm
+              sm:p-7
+              dark:border-white/10
+              dark:bg-white/[0.03]
+              dark:shadow-none
+            "
+          >
             {/* Instructor Introduction */}
             <div className="mb-6">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-300">
+              <p
+                className="
+                  flex items-center gap-2
+                  text-xs font-semibold uppercase tracking-[0.16em]
+                  text-indigo-600
+                  dark:text-indigo-300
+                "
+              >
                 <GraduationCap className="h-3.5 w-3.5" />
                 Meet Your Course Instructor
               </p>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">
+              <p
+                className="
+                  mt-3 text-sm leading-relaxed
+                  text-slate-600
+                  dark:text-slate-400
+                "
+              >
                 Learn German under the guidance of{" "}
-                <span className="font-semibold text-slate-200">
+                <span
+                  className="
+                    font-semibold
+                    text-slate-900
+                    dark:text-slate-200
+                  "
+                >
                   Md Najrul Islam
                 </span>
                 , an experienced educator and academic professional based in
@@ -144,30 +197,124 @@ export function GermanLanguage() {
             </div>
 
             {/* Instructor Profile */}
-            <div className="rounded-xl border border-white/10 bg-primary-950/40 p-4">
-              <div className="flex items-center gap-4">
-                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/10 bg-primary-800">
-                  <img
-                    src={najrulIslam}
-                    alt="Md Najrul Islam"
-                    loading="lazy"
-                    className="h-full w-full object-cover"
+            <div
+              className="
+    relative overflow-hidden rounded-2xl
+    border border-slate-200
+    bg-gradient-to-br from-indigo-50 via-white to-slate-50
+    dark:border-white/10
+    dark:from-indigo-500/10
+    dark:via-white/[0.03]
+    dark:to-primary-950/50
+  "
+            >
+              {/* Decorative glow */}
+              <div
+                className="
+      pointer-events-none absolute -right-16 -top-16
+      h-40 w-40 rounded-full
+      bg-indigo-400/20 blur-3xl
+      dark:bg-indigo-500/20
+    "
+              />
+
+              {/* Portrait */}
+              <div className="relative h-[280px] overflow-hidden sm:h-[320px]">
+                <img
+                  src={najrulIslam}
+                  alt="Md Najrul Islam"
+                  loading="lazy"
+                  className="
+        h-full w-full object-cover object-top
+        transition-transform duration-700
+        hover:scale-[1.04]
+      "
+                />
+
+                {/* Image overlay */}
+                <div
+                  className="
+        absolute inset-0
+        bg-gradient-to-t
+        from-slate-950/80 via-slate-950/10 to-transparent
+      "
+                />
+
+                {/* Verified badge */}
+                <div
+                  className="
+        absolute right-4 top-4
+        flex items-center gap-1.5
+        rounded-full
+        border border-white/20
+        bg-white/90
+        px-2.5 py-1.5
+        shadow-lg backdrop-blur-sm
+        dark:bg-primary-950/80
+      "
+                >
+                  <BadgeCheck
+                    className="
+          h-4 w-4
+          text-indigo-600
+          dark:text-indigo-400
+        "
                   />
+
+                  <span
+                    className="
+          text-[10px] font-semibold
+          text-slate-700
+          dark:text-slate-200
+        "
+                  >
+                    Certified Educator
+                  </span>
                 </div>
 
-                <div>
-                  <p className="font-heading text-lg font-bold text-white">
+                {/* Instructor information */}
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p
+                    className="
+          font-heading text-xl font-bold
+          text-white
+          sm:text-2xl
+        "
+                  >
                     Md Najrul Islam
                   </p>
 
-                  <p className="mt-1 flex items-center gap-1 text-xs text-slate-400">
-                    <MapPin className="h-3 w-3" />
+                  <p
+                    className="
+          mt-1 flex items-center gap-1.5
+          text-xs
+          text-white/80
+        "
+                  >
+                    <MapPin className="h-3.5 w-3.5" />
                     Based in Berlin, Germany
                   </p>
 
-                  <p className="mt-2 text-xs font-medium text-indigo-300">
-                    German Language Course Instructor
-                  </p>
+                  <div
+                    className="
+          mt-3 inline-flex items-center gap-1.5
+          rounded-full
+          bg-indigo-500/20
+          px-3 py-1.5
+          backdrop-blur-sm
+        "
+                  >
+                    <GraduationCap className="h-3.5 w-3.5 text-indigo-200" />
+
+                    <span
+                      className="
+            text-[10px] font-semibold
+            text-indigo-100
+          "
+                    >
+                      German Language Course Instructor
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -177,7 +324,14 @@ export function GermanLanguage() {
               {certificates.map((certificate) => (
                 <span
                   key={certificate}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-3 py-1 text-[11px] font-medium text-indigo-300"
+                  className="
+                    inline-flex items-center gap-1.5 rounded-full
+                    bg-indigo-500/10
+                    px-3 py-1
+                    text-[11px] font-medium
+                    text-indigo-600
+                    dark:text-indigo-300
+                  "
                 >
                   <BadgeCheck className="h-3 w-3" />
                   {certificate}
@@ -187,7 +341,14 @@ export function GermanLanguage() {
 
             {/* Academic Background */}
             <div className="mt-6">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <p
+                className="
+                  flex items-center gap-2
+                  text-xs font-semibold uppercase tracking-wider
+                  text-slate-600
+                  dark:text-slate-400
+                "
+              >
                 <GraduationCap className="h-3.5 w-3.5" />
                 Academic Background
               </p>
@@ -196,9 +357,19 @@ export function GermanLanguage() {
                 {academicBackground.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-2 text-xs leading-relaxed text-slate-300"
+                    className="
+                      flex gap-2 text-xs leading-relaxed
+                      text-slate-600
+                      dark:text-slate-300
+                    "
                   >
-                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-indigo-400" />
+                    <Check
+                      className="
+                        mt-0.5 h-3 w-3 shrink-0
+                        text-indigo-500
+                        dark:text-indigo-400
+                      "
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -207,7 +378,14 @@ export function GermanLanguage() {
 
             {/* Teaching Experience */}
             <div className="mt-6">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <p
+                className="
+                  flex items-center gap-2
+                  text-xs font-semibold uppercase tracking-wider
+                  text-slate-600
+                  dark:text-slate-400
+                "
+              >
                 <Briefcase className="h-3.5 w-3.5" />
                 Teaching Experience
               </p>
@@ -216,9 +394,19 @@ export function GermanLanguage() {
                 {teachingExperience.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-2 text-xs leading-relaxed text-slate-300"
+                    className="
+                      flex gap-2 text-xs leading-relaxed
+                      text-slate-600
+                      dark:text-slate-300
+                    "
                   >
-                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-indigo-400" />
+                    <Check
+                      className="
+                        mt-0.5 h-3 w-3 shrink-0
+                        text-indigo-500
+                        dark:text-indigo-400
+                      "
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -227,7 +415,14 @@ export function GermanLanguage() {
 
             {/* Achievements */}
             <div className="mt-6">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <p
+                className="
+                  flex items-center gap-2
+                  text-xs font-semibold uppercase tracking-wider
+                  text-slate-600
+                  dark:text-slate-400
+                "
+              >
                 <Trophy className="h-3.5 w-3.5" />
                 Achievements
               </p>
@@ -236,9 +431,19 @@ export function GermanLanguage() {
                 {achievements.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-2 text-xs leading-relaxed text-slate-300"
+                    className="
+                      flex gap-2 text-xs leading-relaxed
+                      text-slate-600
+                      dark:text-slate-300
+                    "
                   >
-                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-indigo-400" />
+                    <Check
+                      className="
+                        mt-0.5 h-3 w-3 shrink-0
+                        text-indigo-500
+                        dark:text-indigo-400
+                      "
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -247,18 +452,52 @@ export function GermanLanguage() {
           </div>
 
           {/* Booking form */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+          <div
+            className="
+              rounded-2xl
+              border border-slate-200
+              bg-white
+              p-6 shadow-sm
+              sm:p-8
+              dark:border-white/10
+              dark:bg-white/[0.03]
+              dark:shadow-none
+            "
+          >
             {submitted ? (
               <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/10">
-                  <Check className="h-8 w-8 text-indigo-400" />
+                <div
+                  className="
+                    flex h-16 w-16 items-center justify-center rounded-full
+                    bg-indigo-500/10
+                  "
+                >
+                  <Check
+                    className="
+                      h-8 w-8
+                      text-indigo-600
+                      dark:text-indigo-400
+                    "
+                  />
                 </div>
 
-                <h2 className="mt-5 font-heading text-2xl font-bold text-white">
+                <h2
+                  className="
+                    mt-5 font-heading text-2xl font-bold
+                    text-slate-900
+                    dark:text-white
+                  "
+                >
                   Booking Request Received
                 </h2>
 
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-400">
+                <p
+                  className="
+                    mt-3 max-w-md text-sm leading-relaxed
+                    text-slate-600
+                    dark:text-slate-400
+                  "
+                >
                   Thank you for your interest in the German Language Program.
                   Our team will review your request and contact you with the
                   next steps.
@@ -271,11 +510,23 @@ export function GermanLanguage() {
             ) : (
               <>
                 <div>
-                  <p className="font-heading text-xl font-bold text-white">
+                  <p
+                    className="
+                      font-heading text-xl font-bold
+                      text-slate-900
+                      dark:text-white
+                    "
+                  >
                     Book Your German Class
                   </p>
 
-                  <p className="mt-2 text-sm text-slate-400">
+                  <p
+                    className="
+                      mt-2 text-sm
+                      text-slate-600
+                      dark:text-slate-400
+                    "
+                  >
                     Fill in the details below and our team will contact you to
                     confirm your class.
                   </p>
@@ -284,18 +535,38 @@ export function GermanLanguage() {
                 <form onSubmit={handleSubmit} className="mt-7 space-y-6">
                   {/* Personal Information */}
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+                    <h3
+                      className="
+                        text-sm font-semibold uppercase tracking-wider
+                        text-slate-700
+                        dark:text-slate-300
+                      "
+                    >
                       Personal Information
                     </h3>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {/* Full Name */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Full Name *
                         </label>
 
                         <div className="relative">
-                          <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                          <User
+                            className="
+                              absolute left-3 top-1/2 h-4 w-4
+                              -translate-y-1/2
+                              text-slate-400
+                              dark:text-slate-500
+                            "
+                          />
 
                           <input
                             required
@@ -303,18 +574,50 @@ export function GermanLanguage() {
                             value={formData.fullName}
                             onChange={handleChange}
                             placeholder="Your full name"
-                            className="w-full rounded-xl border border-white/10 bg-primary-950/60 py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                            className="
+                              w-full rounded-xl
+                              border border-slate-200
+                              bg-slate-50
+                              py-3 pl-10 pr-4
+                              text-sm
+                              text-slate-900
+                              placeholder:text-slate-400
+                              outline-none
+                              transition
+                              focus:border-indigo-400
+                              focus:bg-white
+                              dark:border-white/10
+                              dark:bg-primary-950/60
+                              dark:text-white
+                              dark:placeholder:text-slate-500
+                              dark:focus:border-indigo-400/50
+                              dark:focus:bg-primary-950/60
+                            "
                           />
                         </div>
                       </div>
 
+                      {/* Email */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Email Address *
                         </label>
 
                         <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                          <Mail
+                            className="
+                              absolute left-3 top-1/2 h-4 w-4
+                              -translate-y-1/2
+                              text-slate-400
+                              dark:text-slate-500
+                            "
+                          />
 
                           <input
                             required
@@ -323,18 +626,50 @@ export function GermanLanguage() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="you@example.com"
-                            className="w-full rounded-xl border border-white/10 bg-primary-950/60 py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                            className="
+                              w-full rounded-xl
+                              border border-slate-200
+                              bg-slate-50
+                              py-3 pl-10 pr-4
+                              text-sm
+                              text-slate-900
+                              placeholder:text-slate-400
+                              outline-none
+                              transition
+                              focus:border-indigo-400
+                              focus:bg-white
+                              dark:border-white/10
+                              dark:bg-primary-950/60
+                              dark:text-white
+                              dark:placeholder:text-slate-500
+                              dark:focus:border-indigo-400/50
+                              dark:focus:bg-primary-950/60
+                            "
                           />
                         </div>
                       </div>
 
+                      {/* Phone */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Phone / WhatsApp *
                         </label>
 
                         <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                          <Phone
+                            className="
+                              absolute left-3 top-1/2 h-4 w-4
+                              -translate-y-1/2
+                              text-slate-400
+                              dark:text-slate-500
+                            "
+                          />
 
                           <input
                             required
@@ -343,13 +678,38 @@ export function GermanLanguage() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+49 ..."
-                            className="w-full rounded-xl border border-white/10 bg-primary-950/60 py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                            className="
+                              w-full rounded-xl
+                              border border-slate-200
+                              bg-slate-50
+                              py-3 pl-10 pr-4
+                              text-sm
+                              text-slate-900
+                              placeholder:text-slate-400
+                              outline-none
+                              transition
+                              focus:border-indigo-400
+                              focus:bg-white
+                              dark:border-white/10
+                              dark:bg-primary-950/60
+                              dark:text-white
+                              dark:placeholder:text-slate-500
+                              dark:focus:border-indigo-400/50
+                              dark:focus:bg-primary-950/60
+                            "
                           />
                         </div>
                       </div>
 
+                      {/* Country */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Country *
                         </label>
 
@@ -359,7 +719,25 @@ export function GermanLanguage() {
                           value={formData.country}
                           onChange={handleChange}
                           placeholder="Country of residence"
-                          className="w-full rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                          className="
+                            w-full rounded-xl
+                            border border-slate-200
+                            bg-slate-50
+                            px-4 py-3
+                            text-sm
+                            text-slate-900
+                            placeholder:text-slate-400
+                            outline-none
+                            transition
+                            focus:border-indigo-400
+                            focus:bg-white
+                            dark:border-white/10
+                            dark:bg-primary-950/60
+                            dark:text-white
+                            dark:placeholder:text-slate-500
+                            dark:focus:border-indigo-400/50
+                            dark:focus:bg-primary-950/60
+                          "
                         />
                       </div>
                     </div>
@@ -367,67 +745,156 @@ export function GermanLanguage() {
 
                   {/* Course Selection */}
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+                    <h3
+                      className="
+                        text-sm font-semibold uppercase tracking-wider
+                        text-slate-700
+                        dark:text-slate-300
+                      "
+                    >
                       Course Selection
                     </h3>
 
                     {/* Batch */}
                     <div className="mt-4">
-                      <label className="mb-2 block text-xs font-medium text-slate-400">
+                      <label
+                        className="
+                          mb-2 block text-xs font-medium
+                          text-slate-600
+                          dark:text-slate-400
+                        "
+                      >
                         Batch Type *
                       </label>
 
                       <div className="grid gap-3 sm:grid-cols-2">
+                        {/* Individual */}
                         <button
                           type="button"
                           onClick={() => setBatchType("individual")}
-                          className={`rounded-xl border p-4 text-left transition ${
-                            batchType === "individual"
-                              ? "border-indigo-400/50 bg-indigo-500/10"
-                              : "border-white/10 bg-primary-950/40 hover:border-white/20"
-                          }`}
+                          className={`
+                            rounded-xl border p-4 text-left transition
+                            ${
+                              batchType === "individual"
+                                ? `
+                                  border-indigo-400/60
+                                  bg-indigo-50
+                                  dark:border-indigo-400/50
+                                  dark:bg-indigo-500/10
+                                `
+                                : `
+                                  border-slate-200
+                                  bg-slate-50
+                                  hover:border-slate-300
+                                  hover:bg-slate-100
+                                  dark:border-white/10
+                                  dark:bg-primary-950/40
+                                  dark:hover:border-white/20
+                                `
+                            }
+                          `}
                         >
                           <div className="flex items-center gap-2">
-                            <User className="h-4 w-4 text-indigo-400" />
+                            <User
+                              className="
+                                h-4 w-4
+                                text-indigo-600
+                                dark:text-indigo-400
+                              "
+                            />
 
-                            <span className="text-sm font-semibold text-white">
+                            <span
+                              className="
+                                text-sm font-semibold
+                                text-slate-900
+                                dark:text-white
+                              "
+                            >
                               Individual
                             </span>
                           </div>
 
-                          <p className="mt-1 text-xs text-slate-400">
+                          <p
+                            className="
+                              mt-1 text-xs
+                              text-slate-500
+                              dark:text-slate-400
+                            "
+                          >
                             One-on-one personalized classes
                           </p>
                         </button>
 
+                        {/* Group */}
                         <button
                           type="button"
                           onClick={() => setBatchType("group")}
-                          className={`rounded-xl border p-4 text-left transition ${
-                            batchType === "group"
-                              ? "border-indigo-400/50 bg-indigo-500/10"
-                              : "border-white/10 bg-primary-950/40 hover:border-white/20"
-                          }`}
+                          className={`
+                            rounded-xl border p-4 text-left transition
+                            ${
+                              batchType === "group"
+                                ? `
+                                  border-indigo-400/60
+                                  bg-indigo-50
+                                  dark:border-indigo-400/50
+                                  dark:bg-indigo-500/10
+                                `
+                                : `
+                                  border-slate-200
+                                  bg-slate-50
+                                  hover:border-slate-300
+                                  hover:bg-slate-100
+                                  dark:border-white/10
+                                  dark:bg-primary-950/40
+                                  dark:hover:border-white/20
+                                `
+                            }
+                          `}
                         >
                           <div className="flex items-center gap-2">
-                            <Users className="h-4 w-4 text-indigo-400" />
+                            <Users
+                              className="
+                                h-4 w-4
+                                text-indigo-600
+                                dark:text-indigo-400
+                              "
+                            />
 
-                            <span className="text-sm font-semibold text-white">
+                            <span
+                              className="
+                                text-sm font-semibold
+                                text-slate-900
+                                dark:text-white
+                              "
+                            >
                               Group (5–10)
                             </span>
                           </div>
 
-                          <p className="mt-1 text-xs text-slate-400">
+                          <p
+                            className="
+                              mt-1 text-xs
+                              text-slate-500
+                              dark:text-slate-400
+                            "
+                          >
                             Learn together in a small cohort
                           </p>
                         </button>
                       </div>
                     </div>
 
-                    {/* Level */}
+                    {/* Level + Previous Experience */}
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {/* Level */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           German Level *
                         </label>
 
@@ -437,35 +904,90 @@ export function GermanLanguage() {
                             name="level"
                             value={formData.level}
                             onChange={handleChange}
-                            className="w-full appearance-none rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 pr-11 text-sm text-white outline-none focus:border-indigo-400/50"
+                            className="
+                              w-full appearance-none rounded-xl
+                              border border-slate-200
+                              bg-slate-50
+                              px-4 py-3 pr-11
+                              text-sm
+                              text-slate-900
+                              outline-none
+                              focus:border-indigo-400
+                              dark:border-white/10
+                              dark:bg-primary-950/60
+                              dark:text-white
+                              dark:focus:border-indigo-400/50
+                            "
                           >
-                            <option value="">Select your level</option>
-                            <option value="A1">
+                            <option
+                              value=""
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
+                              Select your level
+                            </option>
+
+                            <option
+                              value="A1"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               A1 : {courseFees[batchType].A1}
                             </option>
-                            <option value="A2">
+
+                            <option
+                              value="A2"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               A2 : {courseFees[batchType].A2}
                             </option>
-                            <option value="B1">
+
+                            <option
+                              value="B1"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               B1 : {courseFees[batchType].B1}
                             </option>
-                            <option value="B2">
+
+                            <option
+                              value="B2"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               B2 : {courseFees[batchType].B2}
                             </option>
-                            <option value="C1">
+
+                            <option
+                              value="C1"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               C1 : {courseFees[batchType].C1}
                             </option>
-                            <option value="C2">
+
+                            <option
+                              value="C2"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               C2 : {courseFees[batchType].C2}
                             </option>
                           </select>
 
-                          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                          <ChevronDown
+                            className="
+                              pointer-events-none absolute right-3 top-1/2
+                              h-4 w-4 -translate-y-1/2
+                              text-slate-400
+                            "
+                          />
                         </div>
                       </div>
 
+                      {/* Previous Experience */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Previous German Experience
                         </label>
 
@@ -474,20 +996,64 @@ export function GermanLanguage() {
                             name="previousExperience"
                             value={formData.previousExperience}
                             onChange={handleChange}
-                            className="w-full appearance-none rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 pr-11 text-sm text-white outline-none focus:border-indigo-400/50"
+                            className="
+                              w-full appearance-none rounded-xl
+                              border border-slate-200
+                              bg-slate-50
+                              px-4 py-3 pr-11
+                              text-sm
+                              text-slate-900
+                              outline-none
+                              focus:border-indigo-400
+                              dark:border-white/10
+                              dark:bg-primary-950/60
+                              dark:text-white
+                              dark:focus:border-indigo-400/50
+                            "
                           >
-                            <option value="">Select an option</option>
-                            <option value="none">No previous experience</option>
-                            <option value="self-study">Self-study</option>
-                            <option value="course">
+                            <option
+                              value=""
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
+                              Select an option
+                            </option>
+
+                            <option
+                              value="none"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
+                              No previous experience
+                            </option>
+
+                            <option
+                              value="self-study"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
+                              Self-study
+                            </option>
+
+                            <option
+                              value="course"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               Previously attended a course
                             </option>
-                            <option value="certificate">
+
+                            <option
+                              value="certificate"
+                              className="bg-white text-slate-900 dark:bg-primary-950 dark:text-white"
+                            >
                               Already have a German certificate
                             </option>
                           </select>
 
-                          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                          <ChevronDown
+                            className="
+                              pointer-events-none absolute right-3 top-1/2
+                              h-4 w-4 -translate-y-1/2
+                              text-slate-400
+                            "
+                          />
                         </div>
                       </div>
                     </div>
@@ -495,13 +1061,26 @@ export function GermanLanguage() {
 
                   {/* Schedule */}
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+                    <h3
+                      className="
+                        text-sm font-semibold uppercase tracking-wider
+                        text-slate-700
+                        dark:text-slate-300
+                      "
+                    >
                       Preferred Schedule
                     </h3>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {/* Date */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Preferred Date *
                         </label>
 
@@ -511,12 +1090,32 @@ export function GermanLanguage() {
                           name="preferredDate"
                           value={formData.preferredDate}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400/50"
+                          className="
+                            w-full rounded-xl
+                            border border-slate-200
+                            bg-slate-50
+                            px-4 py-3
+                            text-sm
+                            text-slate-900
+                            outline-none
+                            focus:border-indigo-400
+                            dark:border-white/10
+                            dark:bg-primary-950/60
+                            dark:text-white
+                            dark:focus:border-indigo-400/50
+                          "
                         />
                       </div>
 
+                      {/* Time */}
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label
+                          className="
+                            mb-2 block text-xs font-medium
+                            text-slate-600
+                            dark:text-slate-400
+                          "
+                        >
                           Preferred Time *
                         </label>
 
@@ -526,12 +1125,30 @@ export function GermanLanguage() {
                           name="preferredTime"
                           value={formData.preferredTime}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400/50"
+                          className="
+                            w-full rounded-xl
+                            border border-slate-200
+                            bg-slate-50
+                            px-4 py-3
+                            text-sm
+                            text-slate-900
+                            outline-none
+                            focus:border-indigo-400
+                            dark:border-white/10
+                            dark:bg-primary-950/60
+                            dark:text-white
+                            dark:focus:border-indigo-400/50
+                          "
                         />
                       </div>
                     </div>
 
-                    <p className="mt-2 text-[11px] text-slate-500">
+                    <p
+                      className="
+                        mt-2 text-[11px]
+                        text-slate-500
+                      "
+                    >
                       Final class time will be confirmed based on instructor
                       availability.
                     </p>
@@ -539,7 +1156,13 @@ export function GermanLanguage() {
 
                   {/* Goals */}
                   <div>
-                    <label className="mb-2 block text-xs font-medium text-slate-400">
+                    <label
+                      className="
+                        mb-2 block text-xs font-medium
+                        text-slate-600
+                        dark:text-slate-400
+                      "
+                    >
                       Learning Goals
                     </label>
 
@@ -549,13 +1172,37 @@ export function GermanLanguage() {
                       onChange={handleChange}
                       rows={3}
                       placeholder="Tell us what you want to achieve with German..."
-                      className="w-full resize-none rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                      className="
+                        w-full resize-none rounded-xl
+                        border border-slate-200
+                        bg-slate-50
+                        px-4 py-3
+                        text-sm
+                        text-slate-900
+                        placeholder:text-slate-400
+                        outline-none
+                        transition
+                        focus:border-indigo-400
+                        focus:bg-white
+                        dark:border-white/10
+                        dark:bg-primary-950/60
+                        dark:text-white
+                        dark:placeholder:text-slate-500
+                        dark:focus:border-indigo-400/50
+                        dark:focus:bg-primary-950/60
+                      "
                     />
                   </div>
 
-                  {/* Additional message */}
+                  {/* Additional Message */}
                   <div>
-                    <label className="mb-2 block text-xs font-medium text-slate-400">
+                    <label
+                      className="
+                        mb-2 block text-xs font-medium
+                        text-slate-600
+                        dark:text-slate-400
+                      "
+                    >
                       Additional Message
                     </label>
 
@@ -565,7 +1212,25 @@ export function GermanLanguage() {
                       onChange={handleChange}
                       rows={3}
                       placeholder="Anything else we should know?"
-                      className="w-full resize-none rounded-xl border border-white/10 bg-primary-950/60 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400/50"
+                      className="
+                        w-full resize-none rounded-xl
+                        border border-slate-200
+                        bg-slate-50
+                        px-4 py-3
+                        text-sm
+                        text-slate-900
+                        placeholder:text-slate-400
+                        outline-none
+                        transition
+                        focus:border-indigo-400
+                        focus:bg-white
+                        dark:border-white/10
+                        dark:bg-primary-950/60
+                        dark:text-white
+                        dark:placeholder:text-slate-500
+                        dark:focus:border-indigo-400/50
+                        dark:focus:bg-primary-950/60
+                      "
                     />
                   </div>
 
@@ -578,7 +1243,12 @@ export function GermanLanguage() {
                     Submit Booking Request
                   </button>
 
-                  <p className="text-center text-[11px] leading-relaxed text-slate-500">
+                  <p
+                    className="
+                      text-center text-[11px] leading-relaxed
+                      text-slate-500
+                    "
+                  >
                     By submitting this form, you are requesting enrollment. Your
                     place is not confirmed until our team contacts you.
                   </p>
