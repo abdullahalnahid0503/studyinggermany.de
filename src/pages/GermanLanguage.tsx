@@ -30,6 +30,11 @@ type Instructor = {
   academicBackground: string[];
   teachingExperience: string[];
   achievements: string[];
+
+  // Quick Highlights
+  academicHighlight: string;
+  experienceHighlight: string;
+  credentialsHighlight: string;
 };
 
 const instructors: Instructor[] = [
@@ -39,22 +44,30 @@ const instructors: Instructor[] = [
     location: "Based in Berlin, Germany",
     title: "German Language Instructor",
     image: najrulIslam,
+
     certificates: ["Telc C1", "IELTS - Band 7.5"],
+
     academicBackground: [
       "PG in Data Science & Machine Learning - University of Texas at Austin",
       "MA in International & Development Economics - HTW Berlin",
       "MBA - Dhaka University",
       "BBA - Dhaka University",
     ],
+
     teachingExperience: [
       "Full-Time Faculty, IBAIS University",
       "Adjunct Faculty, Sher-e-Bangla Agricultural University, Sonargaon University, Royal University",
       "External Examiner, Jagannath University",
     ],
+
     achievements: [
       "19th Place, Dhaka Board (2001)",
       "80%+ marks across PG, Master & Bachelor",
     ],
+
+    academicHighlight: "Excellent",
+    experienceHighlight: "University",
+    credentialsHighlight: "Certified",
   },
 
   {
@@ -63,26 +76,34 @@ const instructors: Instructor[] = [
     location: "Based in Berlin, Germany",
     title: "Financial Consultant",
     image: premiumImage,
+
     certificates: [
       "SAP FI - S/4HANA",
       "Project Management",
       "SAP SuccessFactors",
       "Microsoft Excel",
     ],
+
     academicBackground: [
       "Master's in IMIS - Fachhochschule Südwestfalen",
       "BBA - University of Chittagong",
     ],
+
     teachingExperience: [
       "German Language & Private Tuition",
       "Subject-Based Academic Tutoring",
     ],
+
     achievements: [
       "5+ years of professional experience",
       "Siemens, Innomotics & Trust Bank",
       "Financial Consultant at HORBACH",
       "Published author",
     ],
+
+    academicHighlight: "Strong",
+    experienceHighlight: "Corporate",
+    credentialsHighlight: "Certified",
   },
 
   {
@@ -91,25 +112,33 @@ const instructors: Instructor[] = [
     location: "Based in Dhaka, Bangladesh",
     title: "Software Engineer",
     image: sadiarahman,
+
     certificates: [
       "AWS Cloud Practitioner",
       "Google UX Design",
       "Professional Scrum Master",
     ],
+
     academicBackground: [
       "BSc in Computer Science - BUET",
       "Diploma in Computer Science",
     ],
+
     teachingExperience: [
       "Software Development & Programming Tutor",
       "Private Tutor for Computer Science Subjects",
     ],
+
     achievements: [
       "3+ years of software development experience",
       "Full-Stack Web Development",
       "Experience in Agile & Scrum",
       "Mentored students in programming & software development",
     ],
+
+    academicHighlight: "Strong",
+    experienceHighlight: "Entrepreneur",
+    credentialsHighlight: "Certified",
   },
 ];
 
@@ -122,6 +151,7 @@ const courseFees = {
     C1: "€300",
     C2: "€350",
   },
+
   group: {
     A1: "€90",
     A2: "€100",
@@ -156,7 +186,9 @@ function InstructorProfile({
             : "border-slate-200 bg-white hover:border-indigo-300 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-indigo-400/30"
         }`}
       >
-        {/* Top profile area */}
+        {/* =========================================================
+            TOP PROFILE AREA
+        ========================================================= */}
         <div className="relative overflow-hidden">
           <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/15" />
 
@@ -172,6 +204,7 @@ function InstructorProfile({
 
               <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full bg-white/90 px-2 py-1 shadow-sm backdrop-blur-sm dark:bg-primary-950/85">
                 <BadgeCheck className="h-3 w-3 text-indigo-600 dark:text-indigo-400" />
+
                 <span className="text-[9px] font-semibold text-slate-700 dark:text-slate-200">
                   Verified
                 </span>
@@ -204,6 +237,7 @@ function InstructorProfile({
                 </div>
               </div>
 
+              {/* Title */}
               <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-2.5 py-1 text-[10px] font-semibold text-indigo-600 dark:text-indigo-300">
                 <GraduationCap className="h-3 w-3" />
                 {instructor.title}
@@ -225,35 +259,46 @@ function InstructorProfile({
           </div>
         </div>
 
-        {/* Quick highlights */}
+        {/* =========================================================
+            QUICK HIGHLIGHTS
+        ========================================================= */}
         <div className="grid grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 dark:divide-white/10 dark:border-white/10">
+          {/* Academic */}
           <div className="px-3 py-3 text-center">
             <GraduationCap className="mx-auto h-4 w-4 text-indigo-500" />
+
             <p className="mt-1 text-[9px] font-medium uppercase tracking-wide text-slate-400">
               Academic
             </p>
+
             <p className="mt-0.5 text-[10px] font-semibold text-slate-700 dark:text-slate-200">
-              Strong
+              {instructor.academicHighlight}
             </p>
           </div>
 
+          {/* Experience */}
           <div className="px-3 py-3 text-center">
             <Briefcase className="mx-auto h-4 w-4 text-indigo-500" />
+
             <p className="mt-1 text-[9px] font-medium uppercase tracking-wide text-slate-400">
               Experience
             </p>
+
             <p className="mt-0.5 text-[10px] font-semibold text-slate-700 dark:text-slate-200">
-              University
+              {instructor.experienceHighlight}
             </p>
           </div>
 
+          {/* Credentials */}
           <div className="px-3 py-3 text-center">
             <Trophy className="mx-auto h-4 w-4 text-indigo-500" />
+
             <p className="mt-1 text-[9px] font-medium uppercase tracking-wide text-slate-400">
               Credentials
             </p>
+
             <p className="mt-0.5 text-[10px] font-semibold text-slate-700 dark:text-slate-200">
-              Certified
+              {instructor.credentialsHighlight}
             </p>
           </div>
         </div>
@@ -682,6 +727,7 @@ export function GermanLanguage() {
 
                     {/* Level + Experience */}
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {/* German Level */}
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           German Level *
@@ -710,6 +756,7 @@ export function GermanLanguage() {
                         </div>
                       </div>
 
+                      {/* Previous Experience */}
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Previous German Experience
@@ -723,11 +770,15 @@ export function GermanLanguage() {
                             className="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 pr-11 text-sm text-slate-900 outline-none focus:border-indigo-400 dark:border-white/10 dark:bg-primary-950/60 dark:text-white dark:focus:border-indigo-400/50"
                           >
                             <option value="">Select an option</option>
+
                             <option value="none">No previous experience</option>
+
                             <option value="self-study">Self-study</option>
+
                             <option value="course">
                               Previously attended a course
                             </option>
+
                             <option value="certificate">
                               Already have a German certificate
                             </option>
@@ -748,6 +799,7 @@ export function GermanLanguage() {
                     </h3>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {/* Date */}
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Preferred Date *
@@ -763,6 +815,7 @@ export function GermanLanguage() {
                         />
                       </div>
 
+                      {/* Time */}
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Preferred Time *
@@ -785,7 +838,9 @@ export function GermanLanguage() {
                     </p>
                   </div>
 
-                  {/* Goals */}
+                  {/* =================================================
+                      GOALS
+                  ================================================= */}
                   <div>
                     <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                       Learning Goals
@@ -801,7 +856,9 @@ export function GermanLanguage() {
                     />
                   </div>
 
-                  {/* Additional Message */}
+                  {/* =================================================
+                      ADDITIONAL MESSAGE
+                  ================================================= */}
                   <div>
                     <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                       Additional Message
@@ -817,7 +874,9 @@ export function GermanLanguage() {
                     />
                   </div>
 
-                  {/* Submit */}
+                  {/* =================================================
+                      SUBMIT
+                  ================================================= */}
                   <button
                     type="submit"
                     className="btn-gold flex w-full items-center justify-center gap-2"
