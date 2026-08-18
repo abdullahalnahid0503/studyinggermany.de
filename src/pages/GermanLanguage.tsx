@@ -20,6 +20,14 @@ import sadiarahman from "../assets/images/sadiarahman.png";
 
 import { useRouter } from "../lib/router";
 
+/* ============================================================
+   TYPES
+============================================================ */
+
+type Language = "german" | "english" | "french";
+
+type BatchType = "individual" | "group";
+
 type Instructor = {
   id: string;
   name: string;
@@ -31,11 +39,19 @@ type Instructor = {
   teachingExperience: string[];
   achievements: string[];
 
-  // Quick Highlights
   academicHighlight: string;
   experienceHighlight: string;
   credentialsHighlight: string;
 };
+
+type CourseOption = {
+  level: string;
+  price: string;
+};
+
+/* ============================================================
+   INSTRUCTORS
+============================================================ */
 
 const instructors: Instructor[] = [
   {
@@ -142,25 +158,196 @@ const instructors: Instructor[] = [
   },
 ];
 
-const courseFees = {
-  individual: {
-    A1: "€180",
-    A2: "€200",
-    B1: "€230",
-    B2: "€250",
-    C1: "€300",
-    C2: "€350",
+/* ============================================================
+   COURSE PRICING
+============================================================ */
+
+const coursePricing: Record<Language, Record<BatchType, CourseOption[]>> = {
+  german: {
+    individual: [
+      {
+        level: "A1",
+        price: "€180",
+      },
+      {
+        level: "A2",
+        price: "€200",
+      },
+      {
+        level: "B1",
+        price: "€230",
+      },
+      {
+        level: "B2",
+        price: "€250",
+      },
+    ],
+
+    group: [
+      {
+        level: "A1",
+        price: "€90",
+      },
+      {
+        level: "A2",
+        price: "€100",
+      },
+      {
+        level: "B1",
+        price: "€120",
+      },
+      {
+        level: "B2",
+        price: "€130",
+      },
+    ],
   },
 
-  group: {
-    A1: "€90",
-    A2: "€100",
-    B1: "€120",
-    B2: "€130",
-    C1: "€150",
-    C2: "€175",
+  english: {
+    individual: [
+      {
+        level: "IELTS",
+        price: "€180",
+      },
+      {
+        level: "TOEFL",
+        price: "€190",
+      },
+      {
+        level: "Duolingo",
+        price: "€150",
+      },
+      {
+        level: "GRE",
+        price: "€250",
+      },
+    ],
+
+    group: [
+      {
+        level: "IELTS",
+        price: "€90",
+      },
+      {
+        level: "TOEFL",
+        price: "€100",
+      },
+      {
+        level: "Duolingo",
+        price: "€80",
+      },
+      {
+        level: "GRE",
+        price: "€130",
+      },
+    ],
+  },
+
+  french: {
+    individual: [
+      {
+        level: "A1",
+        price: "€180",
+      },
+      {
+        level: "A2",
+        price: "€200",
+      },
+      {
+        level: "B1",
+        price: "€230",
+      },
+      {
+        level: "B2",
+        price: "€250",
+      },
+    ],
+
+    group: [
+      {
+        level: "A1",
+        price: "€90",
+      },
+      {
+        level: "A2",
+        price: "€100",
+      },
+      {
+        level: "B1",
+        price: "€120",
+      },
+      {
+        level: "B2",
+        price: "€130",
+      },
+    ],
   },
 };
+
+/* ============================================================
+   LANGUAGE INFORMATION
+============================================================ */
+
+const languageInfo: Record<
+  Language,
+  {
+    name: string;
+    title: string;
+    description: string;
+    levelLabel: string;
+    experienceLabel: string;
+    experienceOptions: string[];
+  }
+> = {
+  german: {
+    name: "German",
+    title: "Learn German from Experienced Instructors",
+    description:
+      "Choose your preferred instructor and join structured German language classes from A1 to B2 with individual and small-group learning options.",
+    levelLabel: "German Level",
+    experienceLabel: "Previous German Experience",
+    experienceOptions: [
+      "No previous experience",
+      "Self-study",
+      "Previously attended a course",
+      "Already have a German certificate",
+    ],
+  },
+
+  english: {
+    name: "English",
+    title: "Improve Your English with Experienced Instructors",
+    description:
+      "Prepare for internationally recognised English proficiency and admission tests with structured lessons, practice and personalised guidance.",
+    levelLabel: "English Program",
+    experienceLabel: "Previous English Experience",
+    experienceOptions: [
+      "No previous experience",
+      "Self-study",
+      "Previously attended an English course",
+      "Already have an English certificate",
+    ],
+  },
+
+  french: {
+    name: "French",
+    title: "Learn French from Experienced Instructors",
+    description:
+      "Develop your French communication skills through structured lessons covering vocabulary, grammar, speaking and practical communication from A1 to B2.",
+    levelLabel: "French Level",
+    experienceLabel: "Previous French Experience",
+    experienceOptions: [
+      "No previous experience",
+      "Self-study",
+      "Previously attended a French course",
+      "Already have a French certificate",
+    ],
+  },
+};
+
+/* ============================================================
+   INSTRUCTOR PROFILE
+============================================================ */
 
 function InstructorProfile({
   instructor,
@@ -186,14 +373,14 @@ function InstructorProfile({
             : "border-slate-200 bg-white hover:border-indigo-300 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-indigo-400/30"
         }`}
       >
-        {/* =========================================================
-            TOP PROFILE AREA
-        ========================================================= */}
+        {/* TOP PROFILE AREA */}
+
         <div className="relative overflow-hidden">
           <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/15" />
 
           <div className="relative flex gap-4 p-4 sm:p-5">
-            {/* Image */}
+            {/* IMAGE */}
+
             <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-xl bg-slate-100 shadow-md dark:bg-primary-800">
               <img
                 src={instructor.image}
@@ -211,7 +398,8 @@ function InstructorProfile({
               </div>
             </div>
 
-            {/* Info */}
+            {/* INFO */}
+
             <div className="min-w-0 flex-1">
               <div className="flex items-start justify-between gap-2">
                 <div>
@@ -225,7 +413,8 @@ function InstructorProfile({
                   </p>
                 </div>
 
-                {/* Selection indicator */}
+                {/* SELECTION */}
+
                 <div
                   className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all ${
                     selected
@@ -237,13 +426,15 @@ function InstructorProfile({
                 </div>
               </div>
 
-              {/* Title */}
+              {/* TITLE */}
+
               <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-2.5 py-1 text-[10px] font-semibold text-indigo-600 dark:text-indigo-300">
                 <GraduationCap className="h-3 w-3" />
                 {instructor.title}
               </div>
 
-              {/* Certificates */}
+              {/* CERTIFICATES */}
+
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {instructor.certificates.map((certificate) => (
                   <span
@@ -259,11 +450,11 @@ function InstructorProfile({
           </div>
         </div>
 
-        {/* =========================================================
-            QUICK HIGHLIGHTS
-        ========================================================= */}
+        {/* QUICK HIGHLIGHTS */}
+
         <div className="grid grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 dark:divide-white/10 dark:border-white/10">
           {/* Academic */}
+
           <div className="px-3 py-3 text-center">
             <GraduationCap className="mx-auto h-4 w-4 text-indigo-500" />
 
@@ -277,6 +468,7 @@ function InstructorProfile({
           </div>
 
           {/* Experience */}
+
           <div className="px-3 py-3 text-center">
             <Briefcase className="mx-auto h-4 w-4 text-indigo-500" />
 
@@ -290,6 +482,7 @@ function InstructorProfile({
           </div>
 
           {/* Credentials */}
+
           <div className="px-3 py-3 text-center">
             <Trophy className="mx-auto h-4 w-4 text-indigo-500" />
 
@@ -307,10 +500,15 @@ function InstructorProfile({
   );
 }
 
+/* ============================================================
+   INSTRUCTOR DETAILS
+============================================================ */
+
 function InstructorDetails({ instructor }: { instructor: Instructor }) {
   return (
     <div className="mt-5 grid gap-4 sm:grid-cols-3">
       {/* Academic */}
+
       <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.025]">
         <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
           <GraduationCap className="h-3.5 w-3.5 text-indigo-500" />
@@ -331,6 +529,7 @@ function InstructorDetails({ instructor }: { instructor: Instructor }) {
       </div>
 
       {/* Teaching */}
+
       <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.025]">
         <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
           <Briefcase className="h-3.5 w-3.5 text-indigo-500" />
@@ -351,6 +550,7 @@ function InstructorDetails({ instructor }: { instructor: Instructor }) {
       </div>
 
       {/* Achievements */}
+
       <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.025]">
         <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
           <Trophy className="h-3.5 w-3.5 text-indigo-500" />
@@ -373,12 +573,16 @@ function InstructorDetails({ instructor }: { instructor: Instructor }) {
   );
 }
 
+/* ============================================================
+   MAIN PAGE
+============================================================ */
+
 export function GermanLanguage() {
   const { navigate } = useRouter();
 
-  const [batchType, setBatchType] = useState<"individual" | "group">(
-    "individual",
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>("german");
+
+  const [batchType, setBatchType] = useState<BatchType>("individual");
 
   const [selectedInstructor, setSelectedInstructor] = useState<Instructor>(
     instructors[0],
@@ -399,6 +603,28 @@ export function GermanLanguage() {
 
   const [submitted, setSubmitted] = useState(false);
 
+  const currentLanguage = languageInfo[selectedLanguage];
+
+  const currentCourses = coursePricing[selectedLanguage][batchType];
+
+  /* ============================================================
+     CHANGE LANGUAGE
+  ============================================================ */
+
+  const handleLanguageChange = (language: Language) => {
+    setSelectedLanguage(language);
+
+    setFormData((previous) => ({
+      ...previous,
+      level: "",
+      previousExperience: "",
+    }));
+  };
+
+  /* ============================================================
+     FORM CHANGE
+  ============================================================ */
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -410,11 +636,16 @@ export function GermanLanguage() {
     });
   };
 
+  /* ============================================================
+     SUBMIT
+  ============================================================ */
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     console.log({
       ...formData,
+      language: selectedLanguage,
       batchType,
       instructor: selectedInstructor.name,
     });
@@ -425,35 +656,70 @@ export function GermanLanguage() {
   return (
     <main className="relative overflow-hidden py-12 sm:py-16">
       <div className="container-page">
-        {/* =========================================================
+        {/* ======================================================
             HEADER
-        ========================================================= */}
+        ====================================================== */}
+
         <div className="mx-auto mt-10 max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-300">
             <GraduationCap className="h-3.5 w-3.5" />
-            German Language Program
+            Language Program
           </span>
 
           <h1 className="mt-7 font-heading text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
-            Learn German from Experienced Instructors
+            {currentLanguage.title}
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Choose your preferred instructor and join structured German language
-            classes from A1 to C2 with individual and small-group learning
-            options.
+            {currentLanguage.description}
           </p>
         </div>
 
-        {/* =========================================================
+        {/* ======================================================
+            LANGUAGE SELECTOR
+        ====================================================== */}
+
+        <div className="mt-8 flex justify-center">
+          <div className="inline-flex rounded-full border border-slate-200 bg-slate-100 p-1 dark:border-white/10 dark:bg-primary-950">
+            {(
+              [
+                ["german", "German"],
+                ["english", "English"],
+                ["french", "French"],
+              ] as const
+            ).map(([language, label]) => {
+              const isActive = selectedLanguage === language;
+
+              return (
+                <button
+                  key={language}
+                  type="button"
+                  onClick={() => handleLanguageChange(language)}
+                  className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/20"
+                      : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ======================================================
             MAIN CONTENT
-        ========================================================= */}
+        ====================================================== */}
+
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          {/* =======================================================
-              LEFT - INSTRUCTORS
-          ======================================================= */}
+          {/* ====================================================
+              LEFT
+          ==================================================== */}
+
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none">
-            {/* Header */}
+            {/* HEADER */}
+
             <div>
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600 dark:text-indigo-300">
                 <GraduationCap className="h-3.5 w-3.5" />
@@ -467,7 +733,8 @@ export function GermanLanguage() {
               </p>
             </div>
 
-            {/* Instructor List */}
+            {/* INSTRUCTOR LIST */}
+
             <div className="mt-5 space-y-3">
               {instructors.map((instructor) => (
                 <InstructorProfile
@@ -479,7 +746,8 @@ export function GermanLanguage() {
               ))}
             </div>
 
-            {/* Selected Instructor Details */}
+            {/* SELECTED INSTRUCTOR DETAILS */}
+
             <div className="mt-6 border-t border-slate-200 pt-5 dark:border-white/10">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -502,11 +770,16 @@ export function GermanLanguage() {
             </div>
           </div>
 
-          {/* =======================================================
-              RIGHT - BOOKING FORM
-          ======================================================= */}
+          {/* ====================================================
+              RIGHT
+          ==================================================== */}
+
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none">
             {submitted ? (
+              /* ==================================================
+                 SUCCESS STATE
+              ================================================== */
+
               <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/10">
                   <Check className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
@@ -517,13 +790,21 @@ export function GermanLanguage() {
                 </h2>
 
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                  Thank you for your interest in the German Language Program.
-                  Our team will review your request and contact you with the
-                  next steps.
+                  Thank you for your interest in the {currentLanguage.name}{" "}
+                  Language Program. Our team will review your request and
+                  contact you with the next steps.
                 </p>
 
                 <div className="mt-5 rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-3 dark:border-indigo-400/20 dark:bg-indigo-500/10">
                   <p className="text-xs text-slate-600 dark:text-slate-300">
+                    Preferred Language
+                  </p>
+
+                  <p className="mt-1 text-sm font-semibold text-indigo-600 dark:text-indigo-300">
+                    {currentLanguage.name}
+                  </p>
+
+                  <p className="mt-3 text-xs text-slate-600 dark:text-slate-300">
                     Preferred Instructor
                   </p>
 
@@ -538,9 +819,13 @@ export function GermanLanguage() {
               </div>
             ) : (
               <>
+                {/* ==================================================
+                    FORM HEADER
+                ================================================== */}
+
                 <div>
                   <p className="font-heading text-xl font-bold text-slate-900 dark:text-white">
-                    Book Your German Class
+                    Book Your {currentLanguage.name} Class
                   </p>
 
                   <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
@@ -549,7 +834,10 @@ export function GermanLanguage() {
                   </p>
                 </div>
 
-                {/* Selected instructor summary */}
+                {/* ==================================================
+                    SELECTED INSTRUCTOR SUMMARY
+                ================================================== */}
+
                 <div className="mt-5 flex items-center gap-3 rounded-xl border border-indigo-200 bg-indigo-50/70 p-3 dark:border-indigo-400/20 dark:bg-indigo-500/[0.08]">
                   <img
                     src={selectedInstructor.image}
@@ -570,17 +858,23 @@ export function GermanLanguage() {
                   <BadgeCheck className="h-5 w-5 shrink-0 text-indigo-500" />
                 </div>
 
+                {/* ==================================================
+                    FORM
+                ================================================== */}
+
                 <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-                  {/* =================================================
+                  {/* ==================================================
                       PERSONAL INFORMATION
-                  ================================================= */}
+                  ================================================== */}
+
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Personal Information
                     </h3>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                      {/* Name */}
+                      {/* NAME */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Full Name *
@@ -600,7 +894,8 @@ export function GermanLanguage() {
                         </div>
                       </div>
 
-                      {/* Email */}
+                      {/* EMAIL */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Email Address *
@@ -621,7 +916,8 @@ export function GermanLanguage() {
                         </div>
                       </div>
 
-                      {/* Phone */}
+                      {/* PHONE */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Phone / WhatsApp *
@@ -642,7 +938,8 @@ export function GermanLanguage() {
                         </div>
                       </div>
 
-                      {/* Country */}
+                      {/* COUNTRY */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Country *
@@ -660,21 +957,60 @@ export function GermanLanguage() {
                     </div>
                   </div>
 
-                  {/* =================================================
+                  {/* ==================================================
                       COURSE SELECTION
-                  ================================================= */}
+                  ================================================== */}
+
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Course Selection
                     </h3>
 
-                    {/* Batch */}
+                    {/* LANGUAGE */}
+
+                    <div className="mt-4">
+                      <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
+                        Language *
+                      </label>
+
+                      <div className="grid grid-cols-3 gap-2">
+                        {(
+                          [
+                            ["german", "German"],
+                            ["english", "English"],
+                            ["french", "French"],
+                          ] as const
+                        ).map(([language, label]) => {
+                          const isActive = selectedLanguage === language;
+
+                          return (
+                            <button
+                              key={language}
+                              type="button"
+                              onClick={() => handleLanguageChange(language)}
+                              className={`rounded-xl border px-3 py-3 text-sm font-semibold transition ${
+                                isActive
+                                  ? "border-indigo-400/60 bg-indigo-50 text-indigo-700 dark:border-indigo-400/50 dark:bg-indigo-500/10 dark:text-indigo-300"
+                                  : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-slate-100 dark:border-white/10 dark:bg-primary-950/40 dark:text-slate-400 dark:hover:border-white/20"
+                              }`}
+                            >
+                              {label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* BATCH */}
+
                     <div className="mt-4">
                       <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                         Batch Type *
                       </label>
 
                       <div className="grid gap-3 sm:grid-cols-2">
+                        {/* INDIVIDUAL */}
+
                         <button
                           type="button"
                           onClick={() => setBatchType("individual")}
@@ -696,6 +1032,8 @@ export function GermanLanguage() {
                             One-on-one personalized classes
                           </p>
                         </button>
+
+                        {/* GROUP */}
 
                         <button
                           type="button"
@@ -721,12 +1059,14 @@ export function GermanLanguage() {
                       </div>
                     </div>
 
-                    {/* Level + Experience */}
+                    {/* LEVEL + EXPERIENCE */}
+
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                      {/* German Level */}
+                      {/* LEVEL */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
-                          German Level *
+                          {currentLanguage.levelLabel} *
                         </label>
 
                         <div className="relative">
@@ -737,25 +1077,24 @@ export function GermanLanguage() {
                             onChange={handleChange}
                             className="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 pr-11 text-sm text-slate-900 outline-none focus:border-indigo-400 dark:border-white/10 dark:bg-primary-950/60 dark:text-white dark:focus:border-indigo-400/50"
                           >
-                            <option value="">Select your level</option>
+                            <option value="">Select your option</option>
 
-                            {Object.entries(courseFees[batchType]).map(
-                              ([level, price]) => (
-                                <option key={level} value={level}>
-                                  {level} : {price}
-                                </option>
-                              ),
-                            )}
+                            {currentCourses.map((course) => (
+                              <option key={course.level} value={course.level}>
+                                {course.level} : {course.price}
+                              </option>
+                            ))}
                           </select>
 
                           <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                         </div>
                       </div>
 
-                      {/* Previous Experience */}
+                      {/* EXPERIENCE */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
-                          Previous German Experience
+                          {currentLanguage.experienceLabel}
                         </label>
 
                         <div className="relative">
@@ -767,17 +1106,11 @@ export function GermanLanguage() {
                           >
                             <option value="">Select an option</option>
 
-                            <option value="none">No previous experience</option>
-
-                            <option value="self-study">Self-study</option>
-
-                            <option value="course">
-                              Previously attended a course
-                            </option>
-
-                            <option value="certificate">
-                              Already have a German certificate
-                            </option>
+                            {currentLanguage.experienceOptions.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
                           </select>
 
                           <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -786,16 +1119,18 @@ export function GermanLanguage() {
                     </div>
                   </div>
 
-                  {/* =================================================
+                  {/* ==================================================
                       SCHEDULE
-                  ================================================= */}
+                  ================================================== */}
+
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Preferred Schedule
                     </h3>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                      {/* Date */}
+                      {/* DATE */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Preferred Date *
@@ -811,7 +1146,8 @@ export function GermanLanguage() {
                         />
                       </div>
 
-                      {/* Time */}
+                      {/* TIME */}
+
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                           Preferred Time *
@@ -834,9 +1170,10 @@ export function GermanLanguage() {
                     </p>
                   </div>
 
-                  {/* =================================================
+                  {/* ==================================================
                       GOALS
-                  ================================================= */}
+                  ================================================== */}
+
                   <div>
                     <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                       Learning Goals
@@ -847,14 +1184,15 @@ export function GermanLanguage() {
                       value={formData.goals}
                       onChange={handleChange}
                       rows={3}
-                      placeholder="Tell us what you want to achieve with German..."
+                      placeholder={`Tell us what you want to achieve with ${currentLanguage.name}...`}
                       className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white dark:border-white/10 dark:bg-primary-950/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400/50"
                     />
                   </div>
 
-                  {/* =================================================
+                  {/* ==================================================
                       ADDITIONAL MESSAGE
-                  ================================================= */}
+                  ================================================== */}
+
                   <div>
                     <label className="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">
                       Additional Message
@@ -870,9 +1208,10 @@ export function GermanLanguage() {
                     />
                   </div>
 
-                  {/* =================================================
+                  {/* ==================================================
                       SUBMIT
-                  ================================================= */}
+                  ================================================== */}
+
                   <button
                     type="submit"
                     className="btn-gold flex w-full items-center justify-center gap-2"
